@@ -73,10 +73,10 @@ class SubmitBase(unittest.TestCase):
 class EnvironmentTest(SubmitBase):
 
     def jt_tweaks(self):
-        environ['PIPPO'] = 'aaaa'
+        environ['PIPPO'] = 'aaaa=1'
         self.jt.args = (["-c",
                          ("from os import environ as env; assert ('PIPPO' in " +
-                          "env) and (env['PIPPO'] == 'aaaa')")])
+                          "env) and (env['PIPPO'] == 'aaaa=1')")])
         self.jt.jobEnvironment = environ
 
     def test_environment(self):
